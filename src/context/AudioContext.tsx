@@ -20,9 +20,11 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
     useEffect(() => {
         // Initialize background music
-        musicRef.current = new Audio('/pharaonic-music.mp3');
-        musicRef.current.loop = true;
-        musicRef.current.volume = 0.4; // Slightly quieter for background
+        const audio = new Audio('/pharaonic-music.mp3');
+        audio.loop = true;
+        audio.volume = 0.4;
+        audio.preload = 'auto'; // Force pre-load
+        musicRef.current = audio;
 
         return () => {
             if (musicRef.current) {
@@ -47,14 +49,22 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         if (isMuted) return;
         const sfx = new Audio(soundFile);
         sfx.volume = 0.5;
-        sfx.play().catch(e => console.log('Audio playback prevented:', e));
+        // Preload sound effect
+        sfx.preload = 'auto';
+        sfx.play().catch(e => {
+            console.log('Audio playback prevented:', e);
+            // Fallback: try playing again on next touch/click if needed
+        });
     };
 
     const startMusic = () => {
         if (musicRef.current && !isMusicPlaying) {
+            // Prime the audio
             musicRef.current.play().then(() => {
                 setIsMusicPlaying(true);
-            }).catch(e => console.log('Music playback prevented:', e));
+            }).catch(e => {
+                console.log('Music playback prevented:', e);
+            });
         }
     };
 
