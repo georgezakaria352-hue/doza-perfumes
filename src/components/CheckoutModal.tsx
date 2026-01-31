@@ -3,7 +3,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { useAuth } from '../context/AuthContext';
 import { governorates, getShippingCost } from '../data/governorates';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ArrowRight, ShoppingBag, CreditCard, Lock, CheckCircle2, ChevronRight, Package, Calendar } from 'lucide-react';
+import { X, ArrowRight, ShoppingBag, CheckCircle2 } from 'lucide-react';
 import type { Product } from '../data/products';
 
 interface CheckoutModalProps {

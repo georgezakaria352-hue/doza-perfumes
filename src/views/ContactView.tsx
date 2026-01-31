@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Instagram, Facebook, Video, MessageCircle } from 'lucide-react';
+import { Instagram, Facebook, Video, MessageCircle } from 'lucide-react';
 
 export const ContactView: React.FC = () => {
     const socialLinks = [
