@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #0F0F0F;
+  color: #E7E5E4; /* stone-200 */
+  /* Deep stone texture overlay */
+  background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png'); 
+  background-blend-mode: overlay;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1c1917;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #cfc09f, #ffecb3, #b3a070, #aa8e52);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Metallic Gold Text Classes - Can be applied via @apply or utility */
+.text-gold-metallic {
+  background: linear-gradient(to bottom, #cfc09f, #ffecb3, #b3a070, #aa8e52);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
