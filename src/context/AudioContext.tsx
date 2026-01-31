@@ -22,7 +22,7 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         // Initialize background music
         musicRef.current = new Audio('/pharaonic-music.mp3');
         musicRef.current.loop = true;
-        musicRef.current.volume = 0.5;
+        musicRef.current.volume = 0.4; // Slightly quieter for background
 
         return () => {
             if (musicRef.current) {
@@ -46,7 +46,7 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const playSFX = (soundFile: string) => {
         if (isMuted) return;
         const sfx = new Audio(soundFile);
-        sfx.volume = 0.6;
+        sfx.volume = 0.5;
         sfx.play().catch(e => console.log('Audio playback prevented:', e));
     };
 

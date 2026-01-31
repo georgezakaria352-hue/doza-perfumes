@@ -70,7 +70,7 @@ export const TempleGate: React.FC<TempleGateProps> = ({ onEnter }) => {
         setShowDust(true);
 
         // Play stone grinding sound
-        playSFX('/stone-gate.mp3');
+        playSFX('/stone-opening.mp3');
 
         // Start background music
         setTimeout(startMusic, 1000); // 1s delay for dramatic effect
